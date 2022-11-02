@@ -55,9 +55,8 @@ public class Tori {
     }
 
     @Test(priority = 3)
-    public void createReport() {
-        // Create Report
-        ReusableMethods.createReport(resultPage.toJson());
+    public void report() {
+        System.out.println(resultPage.toJson());
     }
 
     // Close Driver and browser

@@ -12,8 +12,6 @@ import java.util.List;
 
 public class ResultPage {
 
-    private static final int maxItem = 30;
-
     // Personal items element
     @FindBy(xpath = "//li[@class=\"type\"][1]//a")
     public WebElement personalItems;
@@ -59,11 +57,11 @@ public class ResultPage {
         }
     }
 
-    // Items to json
+    // List to json
     public String toJson() {
         ArrayList<HashMap> items = new ArrayList<>();
 
-        for (int i = 0; i < maxItem; i++) {
+        for (int i = 0; i < itemName.size(); i++) {
 
             HashMap<String, String> item = new HashMap<>();
 
@@ -74,6 +72,7 @@ public class ResultPage {
             item.put("link", itemLink.get(i).getAttribute("href"));
 
             items.add(item);
+
         }
 
         return new Gson().toJson(items);

@@ -30,28 +30,4 @@ public class ReusableMethods {
         wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(e));
     }
-
-    public static void createFile() throws IOException {
-        File file = new File("src/jsonResult/result.json");
-        if (!file.exists()) {
-            file.createNewFile();
-        }
-    }
-
-    public static void writeToFile(String value) throws IOException {
-        BufferedWriter file = new BufferedWriter(new FileWriter("src/jsonResult/result.json", true));
-        file.newLine();
-        file.write(value);
-        file.close();
-    }
-
-    // Write to file
-    public static void createReport(String json) {
-        try {
-            ReusableMethods.createFile();
-            ReusableMethods.writeToFile(json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
