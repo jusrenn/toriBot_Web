@@ -25,13 +25,12 @@ public class Tori {
 
     // Accept cookies and search items
     @Test(priority = 1)
-    public void searchOrder() {
+    public void searchOrder() throws InterruptedException {
 
         // Accept Cookies
         homePage.acceptCookies();
 
-        // Waiting element
-        ReusableMethods.waitElement(homePage.searchBoxHomePage);
+        Thread.sleep(500); // wait 0.5 sec
 
         // Setting area
         homePage.area(ConfigReader.getProperty("Area")).click();
