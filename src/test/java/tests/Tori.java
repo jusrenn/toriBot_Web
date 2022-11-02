@@ -58,6 +58,9 @@ public class Tori {
 
     @Test(priority = 3)
     public void report() throws IOException {
+
+        ReusableMethods.takeScreenShot("Result");
+
         //System.out.println(resultPage.toJson());
         ReusableMethods.jsonToFile(resultPage.toJson());
     }
