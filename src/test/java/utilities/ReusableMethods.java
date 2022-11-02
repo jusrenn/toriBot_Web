@@ -30,4 +30,16 @@ public class ReusableMethods {
         wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(e));
     }
+
+    public static void jsonToFile(String json) throws IOException {
+        try {
+            BufferedWriter file = new BufferedWriter(new FileWriter(ConfigReader.getProperty("jsonPath"), true));
+            file.newLine();
+            file.write(json);
+            file.close();
+        } catch (IOException e) {
+            File file = new File(ConfigReader.getProperty("jsonPath"));
+            file.createNewFile();
+        }
+    }
 }

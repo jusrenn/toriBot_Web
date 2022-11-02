@@ -11,6 +11,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.io.IOException;
+
 public class Tori {
 
     HomePage homePage = new HomePage();
@@ -55,8 +57,9 @@ public class Tori {
     }
 
     @Test(priority = 3)
-    public void report() {
-        System.out.println(resultPage.toJson());
+    public void report() throws IOException {
+        //System.out.println(resultPage.toJson());
+        ReusableMethods.jsonToFile(resultPage.toJson());
     }
 
     // Close Driver and browser
